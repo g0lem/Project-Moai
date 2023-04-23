@@ -1,5 +1,7 @@
-#include "gl_test.h"
+// #include "gl_test.h"
+#include "conway.h"
 
-int main(int argc, char** argv) {
-    return glMain(argc, argv);
+main(int argc, char** argv) {
+    // glMain(argc, argv);
+    runConway();
 } 

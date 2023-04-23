@@ -54,3 +54,7 @@ dkms.conf
 #VS Code Extensions
 .vscode
 .history
+
+node_modules
+package-lock.json
+server/public
