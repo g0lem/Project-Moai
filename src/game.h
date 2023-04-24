@@ -1,8 +1,6 @@
-// test.c
-#include <GLFW/glfw3.h>
-#include <emscripten.h>
+#include "glheads.h"
 
-int glMain(void)
+int gameRun(void)
 {
     GLFWwindow* window;
 
