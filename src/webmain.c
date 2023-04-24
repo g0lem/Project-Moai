@@ -1,5 +1,3 @@
-#include <emscripten.h>
-#include <emscripten/html5.h>
 #define EMSCRIPTEN 1
 #include "game.h"
 
