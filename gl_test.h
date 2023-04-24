@@ -1,6 +1,13 @@
 #include <stdio.h>
-#include <GL/freeglut.h>
+#ifdef __EMSCRIPTEN__
+#   include <emscripten.h>
+#include <GLES2/gl2.h>
+#include <GLES2/gl2ext.h>
+#endif
+
+#include <GL/glut.h>
 #include <GL/gl.h>
+
 
 void drawSquare() {
     glColor3f(1.0, 0.0, 1.0);
@@ -36,7 +43,7 @@ void drawWorld() {
     glLoadIdentity();
     gluOrtho2D( 0.0, 500.0, 500.0,0.0 );
     glBegin(GL_POINTS);
-        updateWorld();
+        drawSquare();
     glEnd();
 }
 
@@ -44,9 +51,9 @@ void renderFunction() {
     printf("HERE");
     glClearColor(0.0, 0.0, 0.0, 0.0);
     glClear(GL_COLOR_BUFFER_BIT);
-    // drawSquare();
+    drawSquare();
     // drawPoint(10,10);
-    drawWorld();
+    // drawWorld();
     glFlush();
 }
 

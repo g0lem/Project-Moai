@@ -1,2 +1,2 @@
 clear
-emcc gl_test.c -o server/public/hello.html
+emcc em_main.c  -lglut -lGL -lGLEW -lGLU -s ASYNCIFY -s WASM=1 -O3 -o server/public/hello.html

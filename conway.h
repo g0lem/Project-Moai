@@ -111,16 +111,18 @@ void runConway() {
     conwayMatrix[15][24] = LIVE_CELL;
     conwayMatrix[15][25] = LIVE_CELL;
     conwayMatrix[15][26] = LIVE_CELL;
-    while(1){
-        counter++;
-        if((unsigned)time(NULL) - startTime > 1) {
-            printf("Cycles: %i\n", counter);
-            startTime = (unsigned)time(NULL);
-            counter = 0;
-        }
+    for(int i=0;i < 30000; i++){
+        // counter++;
+        // if((unsigned)time(NULL) - startTime > 1) {
+        //     printf("Cycles: %i\n", counter);
+        //     startTime = (unsigned)time(NULL);
+        //     counter = 0;
+        // }
         updateConwayMatrix(conwayMatrix, n, m);
         // logConwayMatrix(conwayMatrix, n, m);
     }
+
+    printf("total running time: %i", (unsigned)time(NULL)-startTime);
 
 }
 
