@@ -1,2 +1,2 @@
 clear
-emcc em_main.c  -lglut -lGL -lGLEW -lGLU -s ASYNCIFY -s WASM=1 -O3 -o server/public/hello.html
+emcc em_main.c -s ASYNCIFY -s USE_GLFW=3 -o server/public/main.html

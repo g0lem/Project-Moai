@@ -5,6 +5,6 @@
 int main (int argc, char** argv) {
     printHelloWorld();
     printf("hello world2 \n");
-    glMain(argc, argv);
+    glMain();
     return 0;
 }

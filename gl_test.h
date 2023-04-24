@@ -1,69 +1,40 @@
-#include <stdio.h>
-#ifdef __EMSCRIPTEN__
-#   include <emscripten.h>
-#include <GLES2/gl2.h>
-#include <GLES2/gl2ext.h>
-#endif
+// test.c
+#include <GLFW/glfw3.h>
+#include <emscripten.h>
 
-#include <GL/glut.h>
-#include <GL/gl.h>
+int glMain(void)
+{
+    GLFWwindow* window;
 
+    /* Initialize the library */
+    if (!glfwInit())
+        return -1;
 
-void drawSquare() {
-    glColor3f(1.0, 0.0, 1.0);
-    glOrtho(-1.0, 1.0, -1.0, 1.0, -1.0, 1.0);
-    glBegin(GL_POLYGON);
-        glVertex2f(-0.5, -0.5);
-        glVertex2f(-0.5, 0.5);
-        glVertex2f(0.5, 0.5);
-        glVertex2f(0.5, -0.5);
-    glEnd();
-}
-
-
-void drawPoint(GLint xCoord, GLint yCoord) {
-    glColor3f(1,0,1);
-    glVertex2i(xCoord, yCoord);
-}
-
-
-void updateWorld() {
-    int n = 7;
-    int xArr[] = { 0, 10, 20, 30, 40, 50, 60};
-    int yArr[] = { 0, 10, 20, 30, 40, 50, 60};
-
-    for(int i = 0; i < n; i++) {
-        drawPoint(xArr[i], yArr[i]);
+    /* Create a windowed mode window and its OpenGL context */
+    window = glfwCreateWindow(640, 480, "Hello World", NULL, NULL);
+    if (!window)
+    {
+        glfwTerminate();
+        return -1;
     }
-}
 
-void drawWorld() {
-    glClear(GL_COLOR_BUFFER_BIT);
-    glMatrixMode( GL_PROJECTION );
-    glLoadIdentity();
-    gluOrtho2D( 0.0, 500.0, 500.0,0.0 );
-    glBegin(GL_POINTS);
-        drawSquare();
-    glEnd();
-}
+    /* Make the window's context current */
+    glfwMakeContextCurrent(window);
 
-void renderFunction() {
-    printf("HERE");
-    glClearColor(0.0, 0.0, 0.0, 0.0);
-    glClear(GL_COLOR_BUFFER_BIT);
-    drawSquare();
-    // drawPoint(10,10);
-    // drawWorld();
-    glFlush();
-}
+    /* Loop until the user closes the window */
+    while (!glfwWindowShouldClose(window))
+    {
+        /* Render here */
+        glClear(GL_COLOR_BUFFER_BIT);
 
-int glMain(int argc, char** argv) {
-    glutInit(&argc, argv);
-        glutInitDisplayMode(GLUT_SINGLE);
-        glutInitWindowSize(500,500);
-        glutInitWindowPosition(100,100);
-        glutCreateWindow("OpenGL - First window demo");
-        glutDisplayFunc(renderFunction);
-    glutMainLoop();    
+        /* Swap front and back buffers */
+        glfwSwapBuffers(window);
+
+        /* Poll for and process events */
+        glfwPollEvents();
+        emscripten_sleep(100);
+    }
+
+    glfwTerminate();
     return 0;
-} 
+}

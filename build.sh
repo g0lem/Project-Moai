@@ -4,4 +4,4 @@
 
 #OpenGL
 clear
-gcc main.c -lglut -lGL -lGLEW -lGLU && ./a.out
+gcc main.c -lglfw -lglut -lGL -lGLEW -lGLU && ./a.out
