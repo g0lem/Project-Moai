@@ -4,4 +4,5 @@
 
 #OpenGL
 clear
-gcc src/main.c -lglfw -lglut -lGL -lGLEW -lGLU && ./a.out
+emcc ./src/main.c -s MIN_WEBGL_VERSION=2 -s FORCE_FILESYSTEM -s ASYNCIFY -s USE_GLFW=3 -o server/public/main.html
+gcc src/main.c -lglfw -lglut -lGLESv2 -lGLEW -lGLU && ./a.out
