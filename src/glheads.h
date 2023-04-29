@@ -4,8 +4,6 @@
 #include <GLFW/glfw3.h>
 
 
-#endif // GL_HEADS_H
-
 #ifdef EMSCRIPTEN
     #include <emscripten.h>
     #include <emscripten/html5.h>   
@@ -13,3 +11,6 @@
 #else
     #include "emscripten.h"
 #endif
+
+
+#endif // GL_HEADS_H
