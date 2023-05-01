@@ -1,4 +1,5 @@
 #include <stdio.h>
+
 char* fileToString(char* file_path) {
     char* buffer = NULL;
     FILE* file = fopen(file_path, "rb");

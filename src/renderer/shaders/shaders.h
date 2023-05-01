@@ -2,7 +2,7 @@
 #define SHADERS_H
 #include <stdio.h>
 #include "../../glheads.h"
-#include "../../utils.h"
+#include "../../utils/utils.h"
 
 GLint apply_shaders(const char *vertex_shader_source, const char *fragment_shader_source) {
     enum Consts {INFOLOG_LEN = 512};
