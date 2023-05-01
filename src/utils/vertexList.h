@@ -71,6 +71,8 @@ VertexList* deleteVertex(VertexList* item) {
     itemBefore->next = itemAfter;
     itemAfter->back = itemBefore;
 
+    free(item);
+
     VertexList *myVertextList = getFirstElement(itemBefore);
     myVertextList->size--;
 
