@@ -6,14 +6,14 @@
 #include "../../glheads.h"
 #include "../../utils/utils.h"
 
-struct Object{
+struct Object3D{
     VertexList *geometricVertices;
     VertexList *textureCoords;
     VertexList *vertexNormals;
     VertexList *spaceVertices;
 };
 
-typedef struct Object Object;
+typedef struct Object3D Object3D;
 
 
 
