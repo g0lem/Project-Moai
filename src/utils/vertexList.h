@@ -4,8 +4,8 @@ struct VertexList {
 
     int size;
     float vertex;
-    VertexList* next;
-    VertexList* back;
+    struct VertexList* next;
+    struct VertexList* back;
 };
 
 typedef struct VertexList VertexList;
